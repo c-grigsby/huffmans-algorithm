@@ -3,7 +3,6 @@ import java.util.Scanner;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Comparator;
-
 /*
  * Author HuffmanNode: Kunwar Desh Deepak Singh
  * Location: https://www.geeksforgeeks.org/huffman-coding-greedy-algo-3/
@@ -17,7 +16,6 @@ class HuffmanNode {
  HuffmanNode left;
  HuffmanNode right;
 }
-
 /*
  * Author MyComparator: Kunwar Desh Deepak Singh
  * Location: https://www.geeksforgeeks.org/huffman-coding-greedy-algo-3/
@@ -30,7 +28,6 @@ class MyComparator implements Comparator<HuffmanNode> {
 		return x.data - y.data;
 	}
 }
-
 /*
  * Author Huffman: Kunwar Desh Deepak Singh
  * Location: https://www.geeksforgeeks.org/huffman-coding-greedy-algo-3/
@@ -136,9 +133,7 @@ public class Huffman {
      printCode(root, "");
      System.out.println();
  	}
-
    /*
-    * Author: Christopher Grigsby
     * Method: readFile => returns a String of the contents within a file
     */
    public static String readFile (String fileName) 
@@ -166,5 +161,4 @@ public class Huffman {
  	  }
  	 return fileContents; 
  	}
-
-}//Huffman
+}
