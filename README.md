@@ -2,10 +2,11 @@
 
 # Huffman's Algorithm
 
-This console application provides the details for losseless compression via a table of characters and their frequency
+This console application provides a lossless compression algorithm for a table of characters and their frequency
 
 ## Project Details
 
 - Developed in Java
 - Data received & parsed via file handling
-- Encode and decode data into a sequence of 1's and 0's
+- Encodes a sequence of characters into a string of 1's and 0's
+- Decodes a string of 1's and 0's into a sequence of characters
