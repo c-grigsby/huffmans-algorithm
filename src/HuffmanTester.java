@@ -194,13 +194,31 @@ public class HuffmanTester {
 		String file = "";
 		String input = "";
 		boolean done = false;
+		boolean gettingFile = true;
 		
-		//get file name from user input
-		System.out.print("\nEnter file name to construct Huffman algorithm: ");
-		file = in.nextLine();
-		
-		//get priority queue from file
-		q = readTextFile(file);
+		while (gettingFile)
+		{
+			try {
+				//get file name from user input
+				System.out.print("\nEnter file name to construct Huffman algorithm: ");
+				file = in.nextLine();
+
+				File f = new File(file); 
+				if(f.exists())
+				{ 
+					//get priority queue from file
+					q = readTextFile(file);
+					gettingFile = false;
+				}
+				else
+				{
+					System.out.println("\n...File not found. Please try again.");
+				}
+			} catch (Exception e)
+			{
+				System.out.println("Error: "+ e);
+			}
+		}
 		
 		/*
 		 * Code for creating a Huffman Priority Queue taken from here:
@@ -281,7 +299,7 @@ public class HuffmanTester {
 		    }//close if input contains letters
 		    
 		    //print input to user
-		    System.out.println("This is your input: " + input);
+		    System.out.println("\nThis is your input: " + input);
 		    
 		    //if-else input is string of letters
 		    if (input.matches(".*[A-Z].*")) {
