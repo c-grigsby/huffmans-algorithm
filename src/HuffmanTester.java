@@ -186,48 +186,44 @@ public class HuffmanTester {
 	
 	//main method
 	public static void main(String[] args) {
-
-		//initialize variables
-		HuffmanNode root = null;
-		PriorityQueue<HuffmanNode> q = new PriorityQueue<HuffmanNode>(100, new compareData());
-		Scanner in = new Scanner(System.in);
-		String file = "";
-		String input = "";
-		boolean done = false;
-		boolean gettingFile = true;
+			//initialize variables
+			HuffmanNode root = null;
+			PriorityQueue<HuffmanNode> q = new PriorityQueue<HuffmanNode>(100, new compareData());
+			Scanner in = new Scanner(System.in);
+			String file = "";
+			String input = "";
+			boolean done = false;
+			boolean gettingFile = true;
 		
-		while (gettingFile)
-		{
-			try {
-				//get file name from user input
-				System.out.print("\nEnter file name to construct Huffman algorithm: ");
-				file = in.nextLine();
-
-				File f = new File(file); 
-				if(f.exists())
-				{ 
-					//get priority queue from file
-					q = readTextFile(file);
-					gettingFile = false;
-				}
-				else
+				while (gettingFile)
 				{
-					System.out.println("\n...File not found. Please try again.");
-				}
-			} catch (Exception e)
-			{
-				System.out.println("Error: "+ e);
-			}
-		}
-		
-		/*
-		 * Code for creating a Huffman Priority Queue taken from here:
-		 * https://www.geeksforgeeks.org/huffman-coding-greedy-algo-3/
-		 */
-		
-		//while more than 1 node exists in queue
-		while (q.size() > 1) {
-			  
+					try {
+						//get file name from user input
+						System.out.print("\nEnter file name to construct Huffman algorithm: ");
+						file = in.nextLine();
+
+						File f = new File(file); 
+						if(f.exists())
+						{ 
+							//get priority queue from file
+							q = readTextFile(file);
+							gettingFile = false;
+						}
+						else
+						{
+							System.out.println("\n...File not found. Please try again.");
+						}
+					} catch (Exception e){	
+					System.out.println("Error: "+ e);
+					}
+		  	}
+				/*
+		 		* Code for creating a Huffman Priority Queue taken from here:
+		 		* https://www.geeksforgeeks.org/huffman-coding-greedy-algo-3/
+		 		*/
+				//while more than 1 node exists in queue
+				while (q.size() > 1) 
+				{
             //first min extract
             HuffmanNode x = q.peek();
             q.poll();
@@ -254,16 +250,15 @@ public class HuffmanTester {
   
             //add this node to the priority-queue.
             q.add(f);
-            
         }//close while more than 1 node exists in queue
   
         // print the codes by traversing the tree
-		System.out.println("\nCode guide:");
+				System.out.println("\nCode guide:");
         printCode(root, "");
         
         //Ask user to input a sequence of binary characters or string of alphabetical characters
-	    System.out.println("\nEnter a string of alphabetical characters to encode. Otherwise, enter a string of binary characters to decode.");
-	    input = in.nextLine();
+	    	System.out.println("\nEnter a string of alphabetical characters to encode. Otherwise, enter a string of binary characters to decode.");
+	    	input = in.nextLine();
         
         //do-while user wants to continue with program
         do {
@@ -283,11 +278,9 @@ public class HuffmanTester {
 		    		input = in.nextLine();
 		    		
 		    	} else {
-		    		
 		    		done = true;
-		    		
 		    	}//close if input contains both a letter and a binary character
-		    	
+
 		    }//close while input has not been verified
 		    
 		    //if input contains letters
